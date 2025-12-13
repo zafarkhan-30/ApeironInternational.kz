@@ -1,0 +1,91 @@
+/* Theme overrides: enforce red primary and blue secondary across the site */
+:root{
+  --primary: #F94735;
+  --secondary: #0f47d1;
+  --secondary-rgb: 15,71,209;
+}
+
+/* Utility classes */
+.bg-secondary{background:var(--secondary) !important}
+.text-secondary{color:var(--secondary) !important}
+.text-secondary-hover:hover{color:var(--secondary) !important}
+.border-primary{border-color:var(--primary) !important}
+.text-primary{color:var(--primary) !important}
+.bg-primary{background:var(--primary) !important}
+
+/* Overwrite common components */
+.background-overlay{background-image: linear-gradient(180deg, transparent -100%, var(--secondary) 100%) !important}
+.left-overlay-secondary[data-overlay-dark]:before{background: rgba(var(--secondary-rgb), 0.76) !important; background: linear-gradient(-90deg, transparent, var(--secondary) 65%) !important}
+.primary-overlay[data-overlay-dark]:before{background:var(--primary) !important}
+.secondary-overlay[data-overlay-dark]:before{background:var(--secondary) !important}
+
+.card-style01 .card-body{background: linear-gradient(90deg, var(--secondary) 0%, var(--secondary) 100%) !important}
+.filtering span{background: var(--secondary) !important}
+.portfolio-style-01 .portfolio-overlay:before{background: var(--secondary) !important}
+.tags a{border-color: var(--secondary) !important}
+.sidebar .widget-title{background: var(--secondary) !important}
+.about-style02 .about-circle .about-text{background: var(--secondary) !important}
+.progress-style01 .progress-bar{background-color: var(--secondary) !important}
+.client-style01 .client-wrap .client-item::before{background: var(--secondary) !important}
+.testimonials-style01 .left-box .inner-box h1{color: var(--secondary) !important}
+
+/* Buttons and accents */
+.butn-style1.white{color: var(--secondary) !important}
+.list-style7 li:after, .list-style3 li:before, .list-style5 li:before{color: var(--primary) !important}
+
+/* Fallbacks for any remaining direct color rules */
+*:not(svg)[style*="#0f313a"]{color: var(--secondary) !important}
+*[style*="#0f313a"]{background-color: var(--secondary) !important}
+
+/* End of overrides */
+
+/* Logo visibility on dark navbar
+   - give the header logo a white background with padding and subtle shadow
+   - keep logo dimensions responsive and avoid changing navbar color
+*/
+.navbar-header .navbar-brand img#logo,
+.navbar-header .navbar-brand img {
+  background: #ffffff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  max-height: 64px;
+  display: inline-block;
+}
+
+/* Slightly smaller on very small screens */
+@media (max-width: 575px){
+  .navbar-header .navbar-brand img#logo,
+  .navbar-header .navbar-brand img {
+    padding: 6px 8px;
+    max-height: 48px;
+  }
+}
+
+/* If you prefer a circular cutout for square logos */
+.navbar-header .navbar-brand img.logo-circle {
+  padding: 12px;
+  border-radius: 50%;
+}
+
+
+/* Top contact info: smaller font and icon sizing, right aligned */
+.top-contact-info{
+  font-size:13px;
+  color:#fff;
+}
+.top-contact-info i{
+  font-size:14px;
+  vertical-align:middle;
+  margin-right:6px;
+}
+@media (max-width: 767px){
+  .top-contact-info{font-size:12px;text-align:center;justify-content:center}
+  .top-contact-info span{display:block;margin:4px 0}
+}
+/* reduce the visual height of the red top band */
+.top-contact-bar{padding:4px 0}
+.top-contact-bar .container-fluid{padding-left:0;padding-right:0}
+.top-contact-info{font-size:12px}
+.top-contact-info i{font-size:13px;margin-right:8px}
+
