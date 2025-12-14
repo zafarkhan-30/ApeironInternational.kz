@@ -767,6 +767,42 @@ a:active {
     color: #F94735 !important
 }
 
+/* Underline effect for navigation links */
+.navbar-nav .nav-link {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Underline effect - using ::before to avoid conflict with dropdown arrows */
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #F94735;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.navbar-nav .nav-link:hover::before {
+    width: 80%;
+}
+
+.navbar-nav li.current>a::before,
+.navbar-nav li.active>a::before {
+    width: 80%;
+    background-color: #F94735;
+}
+
+/* Don't show underline for dropdown items that use ::after for arrows */
+.navbar-nav li.has-sub > .nav-link::before {
+    display: none;
+}
+
 .attr-nav>ul>li>a.butn {
     color: #fff
 }
@@ -780,6 +816,20 @@ a:active {
     color: #F94735
 }
 
+.menu_area-light .navbar-nav .nav-link::before {
+    background-color: #F94735;
+}
+
+.menu_area-light .navbar-nav li.current>a::before,
+.menu_area-light .navbar-nav li.active>a::before {
+    width: 80%;
+    background-color: #F94735;
+}
+
+.menu_area-light .navbar-nav li.has-sub > .nav-link::before {
+    display: none;
+}
+
 .menu_area-light .navbar>ul>li.current>a:after {
     border-color: transparent #F94735 #F94735 transparent
 }
@@ -790,6 +840,12 @@ a:active {
 
 .menu_area-light.scrollHeader .navbar-nav li.current>a:hover {
     color: #F94735
+}
+
+.menu_area-light.scrollHeader .navbar-nav li.current>a::before,
+.menu_area-light.scrollHeader .navbar-nav li.active>a::before {
+    width: 80%;
+    background-color: #F94735;
 }
 
 .menu_area-light.scrollHeader .navbar-nav li.active>a {
