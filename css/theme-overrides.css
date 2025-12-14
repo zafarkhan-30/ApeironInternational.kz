@@ -89,3 +89,34 @@
 .top-contact-info{font-size:12px}
 .top-contact-info i{font-size:13px;margin-right:8px}
 
+/* Header link underline on hover and when text is selected */
+.navbar-default .navbar-nav .nav-link{
+  position: relative;
+}
+.navbar-default .navbar-nav .nav-link:hover,
+.navbar-default .navbar-nav .nav-link:focus{
+  text-decoration: none;
+  outline: none;
+}
+
+/* Optional animated underline using pseudo-element (fallback for selection where ::selection may not apply) */
+.navbar-default .navbar-nav .nav-link::after{
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -1px; /* sit just below the text */
+  height: 2px; /* subtle thickness */
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+}
+.navbar-default .navbar-nav .nav-link:hover::after,
+.navbar-default .navbar-nav .nav-link:focus::after{
+  transform: scaleX(1);
+}
+/* Keep the underline visible for the active link */
+.navbar-default .navbar-nav .nav-link.active::after,
+.navbar-default .navbar-nav .nav-item.active > .nav-link::after{
+  transform: scaleX(1);
+}
+
