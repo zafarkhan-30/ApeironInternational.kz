@@ -865,6 +865,96 @@ a:active {
     }
 }
 
+/* Mobile: make collapsed navbar a full-width overlay showing all links */
+@media screen and (max-width: 991px) {
+    .navbar-default {
+        position: relative;
+        z-index: 10000;
+    }
+    .navbar-default .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #ffffff;
+        padding: 90px 20px 30px; /* leave space for header */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        transform: translateY(-4px);
+    }
+    .navbar-default .navbar-collapse .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    .navbar-default .navbar-collapse .nav-link {
+        color: #123b78 !important;
+        font-weight: 700;
+        padding: 18px 12px;
+        background: #fff;
+        border-radius: 6px;
+        display: block;
+    }
+    .navbar-default .navbar-collapse .nav-item + .nav-item {
+        margin-top: 6px;
+    }
+    .navbar-default .navbar-toggler {
+        position: relative;
+        z-index: 10001; /* keep toggler above overlay for close */
+    }
+}
+
+/* Make toggler square and position it at right on small screens */
+@media screen and (max-width: 991px) {
+    /* position toggler relative to the navbar so it sits at navbar's right edge */
+    .navbar-default {
+        position: relative;
+    }
+    /* Ensure navbar row has proper height for vertical centering */
+    .navbar-default .row {
+        min-height: 70px;
+        align-items: center;
+    }
+    /* Ensure the right column properly centers content */
+    .navbar-default .row > div:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .navbar-default .navbar-toggler {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+        border-radius: 6px;
+        padding: 0;
+        margin: 0;
+        position: relative; /* position relative to its container */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        z-index: 10050;
+        margin-left: auto; /* push to the right */
+        border: none;
+        flex-shrink: 0;
+    }
+    /* ensure the icon scales nicely inside the square */
+    .header-style1 .navbar-toggler .navbar-toggler-icon {
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+    }
+    /* offset the mobile overlay so it doesn't cover the top bar */
+    .navbar-default .navbar-collapse {
+        padding-top: 82px;
+    }
+}
+
 .header-style2 .navbar-nav li.current>a {
     color: #F94735
 }
